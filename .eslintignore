@@ -1,0 +1,2 @@
+# Ignore generated Prisma client and runtime files
+src/generated/

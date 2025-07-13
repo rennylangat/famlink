@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "famlink-supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--project-ref=wlqvzsbeimzsbwgypeds"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "sbp_b8105db3a911452c8bdca51e212bc138d547b96f"
+      }
+    }
+  }
+}

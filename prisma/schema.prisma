@@ -6,12 +6,12 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum RelationshipType {
@@ -35,16 +35,16 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   // Relations
-  familyTrees FamilyTree[]
+  families Family[]
 
   @@map("users")
 }
 
-// Model for a Family Tree. This is the main container.
-model FamilyTree {
+// Model for a Family. This is the main container.
+model Family {
   id              String       @id @default(uuid())
   ownerId         String       @map("owner_id")
-  treeName        String       @map("tree_name")
+  name            String       @map("name")
   description     String?
   countryOfOrigin String?      @map("country_of_origin")
   privacyLevel    PrivacyLevel @default(PRIVATE) @map("privacy_level")
@@ -55,13 +55,13 @@ model FamilyTree {
   owner   User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   persons Person[]
 
-  @@map("trees")
+  @@map("family")
 }
 
-// Model for a Person in the family tree.
+// Model for a Person in the family.
 model Person {
   id              String    @id @default(uuid())
-  familyTreeId    String    @map("tree_id")
+  familyId        String    @map("family_id")
   firstName       String    @map("first_name")
   lastName        String?   @map("last_name")
   maidenName      String?   @map("maiden_name")
@@ -74,15 +74,15 @@ model Person {
   updatedAt       DateTime  @updatedAt @map("updated_at")
 
   // Relations
-  familyTree FamilyTree @relation(fields: [familyTreeId], references: [id], onDelete: Cascade)
+  family Family @relation(fields: [familyId], references: [id], onDelete: Cascade)
 
   // A person can be the "from" person in many relationships
   relationshipsFrom Relationship[] @relation("FromPerson")
   // A person can be the "to" person in many relationships
   relationshipsTo   Relationship[] @relation("ToPerson")
 
-  @@index([familyTreeId])
-  @@map("profiles")
+  @@index([familyId])
+  @@map("person")
 }
 
 // Model for defining the relationship between two people.

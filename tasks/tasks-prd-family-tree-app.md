@@ -28,7 +28,7 @@
   - [x] 1.5 Add middleware for route protection using Clerk
 
 - [ ] 2.0 Implement user profile and family tree data models (Supabase)
-  - [ ] 2.1 Define and migrate Prisma schema for User, Family, Person, Relationship
+  - [x] 2.1 Define and migrate Prisma schema for User, Family, Person, Relationship
   - [ ] 2.2 Implement Supabase Row-Level Security (RLS) policies for access control
   - [ ] 2.3 Set up Supabase Storage for profile images
   - [ ] 2.4 Seed initial data for development/testing
