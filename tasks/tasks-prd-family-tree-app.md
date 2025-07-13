@@ -20,12 +20,12 @@
 
 ## Tasks
 
-- [ ] 1.0 Set up project infrastructure and authentication
-  - [ ] 1.1 Configure Clerk Auth for sign up/sign in (email/password, Google optional)
-  - [ ] 1.2 Set up Supabase project and connect to Next.js app
-  - [ ] 1.3 Configure environment variables for Supabase and Clerk
-  - [ ] 1.4 Set up Tailwind CSS and global styles
-  - [ ] 1.5 Add middleware for route protection using Clerk
+- [x] 1.0 Set up project infrastructure and authentication
+  - [x] 1.1 Configure Clerk Auth for sign up/sign in (email/password, Google optional)
+  - [x] 1.2 Set up Supabase project and connect to Next.js app
+  - [x] 1.3 Configure environment variables for Supabase and Clerk
+  - [x] 1.4 Set up Tailwind CSS and global styles
+  - [x] 1.5 Add middleware for route protection using Clerk
 
 - [ ] 2.0 Implement user profile and family tree data models (Supabase)
   - [ ] 2.1 Define and migrate Prisma schema for User, Family, Person, Relationship
