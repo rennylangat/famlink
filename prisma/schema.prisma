@@ -1,0 +1,103 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RelationshipType {
+  SPOUSE
+  PARENT_OF
+}
+
+// Defines the privacy levels for a family tree.
+enum PrivacyLevel {
+  PRIVATE // Only owner and invited collaborators can see
+  PUBLIC // Anyone with the link can view
+}
+
+// --- CORE MODELS ---
+
+// Model for User (maps to Supabase auth.users)
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  familyTrees FamilyTree[]
+
+  @@map("users")
+}
+
+// Model for a Family Tree. This is the main container.
+model FamilyTree {
+  id              String       @id @default(uuid())
+  ownerId         String       @map("owner_id")
+  treeName        String       @map("tree_name")
+  description     String?
+  countryOfOrigin String?      @map("country_of_origin")
+  privacyLevel    PrivacyLevel @default(PRIVATE) @map("privacy_level")
+  createdAt       DateTime     @default(now()) @map("created_at")
+  updatedAt       DateTime     @updatedAt @map("updated_at")
+
+  // Relations
+  owner   User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  persons Person[]
+
+  @@map("trees")
+}
+
+// Model for a Person in the family tree.
+model Person {
+  id              String    @id @default(uuid())
+  familyTreeId    String    @map("tree_id")
+  firstName       String    @map("first_name")
+  lastName        String?   @map("last_name")
+  maidenName      String?   @map("maiden_name")
+  gender          String?
+  bio             String?
+  profileImageUrl String?   @map("profile_image_url")
+  dateOfBirth     DateTime? @map("date_of_birth")
+  dateOfDeath     DateTime? @map("date_of_death")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  familyTree FamilyTree @relation(fields: [familyTreeId], references: [id], onDelete: Cascade)
+
+  // A person can be the "from" person in many relationships
+  relationshipsFrom Relationship[] @relation("FromPerson")
+  // A person can be the "to" person in many relationships
+  relationshipsTo   Relationship[] @relation("ToPerson")
+
+  @@index([familyTreeId])
+  @@map("profiles")
+}
+
+// Model for defining the relationship between two people.
+model Relationship {
+  id               Int              @id @default(autoincrement())
+  fromPersonId     String           @map("from_person_id")
+  toPersonId       String           @map("to_person_id")
+  relationshipType RelationshipType @map("relationship_type")
+  startDate        DateTime?        @map("start_date") // e.g., marriage date
+  endDate          DateTime?        @map("end_date") // e.g., divorce date
+
+  // Relations
+  fromPerson Person @relation("FromPerson", fields: [fromPersonId], references: [id], onDelete: Cascade)
+  toPerson   Person @relation("ToPerson", fields: [toPersonId], references: [id], onDelete: Cascade)
+
+  @@unique([fromPersonId, toPersonId, relationshipType]) // Ensures a specific relationship type between two people is unique
+  @@map("relationships")
+}
