@@ -1,4 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Famlink: Family Tree App
+
+Famlink is a modern web application for building, visualizing, and collaborating on family trees. It enables users to create detailed family trees, manage relationships, invite collaborators, and visualize ancestry with an interactive D3.js interface.
+
+## Features
+- **Authentication:** Secure sign up/sign in with Clerk (email/password, Google optional)
+- **Family Tree Management:** Create, edit, and delete family trees
+- **Person & Relationship Management:** Add, edit, and remove people; define parent-child, partner, and custom relationships
+- **Interactive Visualization:** Explore family trees with D3.js (zoom, pan, dynamic updates)
+- **Collaboration:** Invite others to view or edit trees, with permissions
+- **Profile Management:** User profiles with optional image upload (Supabase Storage)
+- **Privacy & Access Control:** Per-user/family access via Supabase Row-Level Security (RLS)
+- **Export:** Export trees to GEDCOM and PDF formats (planned)
+
+## Tech Stack
+- [Next.js](https://nextjs.org/) (App Router)
+- [Supabase](https://supabase.com/) (Database, Auth, Storage)
+- [Clerk](https://clerk.com/) (Authentication)
+- [Prisma](https://www.prisma.io/) (ORM)
+- [D3.js](https://d3js.org/) (Visualization)
+- [Tailwind CSS](https://tailwindcss.com/) (Styling)
+
+## Directory Structure
+- `prisma/schema.prisma` – Data models (User, Family, Person, Relationship)
+- `src/app/` – Next.js app directory (pages, layouts, routes)
+- `src/app/family/` – Family tree dashboard, tree view, and editor
+- `src/app/profile/` – User profile management
+- `src/lib/` – Supabase client and shared logic
+- `src/middleware.ts` – Clerk Auth and route protection
+- `tasks/` – Product and development tasks
+- `__tests__/` – Unit tests (to be created)
+
+## Roadmap
+- [x] Project setup, authentication, and infrastructure
+- [x] Data models for users, families, people, relationships
+- [ ] Supabase RLS policies and storage for profile images
+- [ ] Family tree and person CRUD API routes
+- [ ] Relationship management and validation
+- [ ] Interactive D3.js tree visualization
+- [ ] Collaboration and permissions
+- [ ] Export features (GEDCOM, PDF)
+- [ ] Responsive, accessible UI/UX
+
+## Testing
+Unit tests should be placed in a `__tests__` folder at the root. Run all tests with:
+
+```bash
+npx jest
+```
+
+Or run a specific test file:
+
+```bash
+npx jest path/to/test/file
+```
+
+---
 
 ## Getting Started
 
