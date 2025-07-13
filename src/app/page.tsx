@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { SignUpButton } from '@clerk/nextjs';
-import { TreeDeciduous, Share2, BookOpen } from 'lucide-react';
+import { Heart, Home as HomeIcon, Camera } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -12,210 +12,140 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-700 selection:bg-rose-200/60 font-sans">
-      {/* HERO */}
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-slate-100 font-sans">
       <section className="flex-1 flex items-center">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 grid md:grid-cols-2 gap-10 place-items-center">
-          {/* Text */}
-          <div className="space-y-6 animate-slideUp delay-150">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900">
-              Discover Your Roots,
-              <br className="hidden sm:block" /> Connect with Family
+          <div className="space-y-6 animate-fadeIn delay-150">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-100">
+              Welcome Home,
+              <br className="hidden sm:block" /> Cherish Your Family Roots
             </h1>
-            <p className="text-lg md:text-xl text-gray-600">
-              Build a beautiful, interactive family tree and share cherished
-              memories with loved ones—anywhere, anytime.
+            <p className="text-lg md:text-xl text-slate-300">
+              Build a beautiful, interactive family tree, preserve precious
+              memories, and celebrate your loved ones—together.
             </p>
             <div className="flex space-x-4">
               <SignUpButton>
-                <button className="inline-flex items-center bg-rose-600 text-white font-medium rounded-md px-6 py-3 hover:bg-rose-700 transition shadow">
+                <button className="inline-flex items-center bg-green-500 text-white font-medium rounded-full px-6 py-3 hover:bg-green-600 transition shadow-lg">
                   Get Started Free
                 </button>
               </SignUpButton>
               <a
                 href="#benefits"
-                className="inline-flex items-center text-rose-600 font-medium hover:underline"
+                className="inline-flex items-center bg-white text-green-700 font-medium rounded-full px-6 py-3 hover:bg-green-50 transition shadow border border-green-200"
               >
                 Learn More
               </a>
             </div>
           </div>
-
-          {/* Image */}
-          <div className="w-full h-80 md:h-96 relative animate-fadeIn delay-200">
+          <div className="w-full h-80 md:h-96 relative animate-fadeIn delay-200 rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="https://images.unsplash.com/photo-1487528278747-ba99ed528ebc?auto=format&fit=crop&w=900&q=60"
-              alt="Family smiling together"
+              src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=60"
+              alt="Family hugging and smiling together"
               fill
-              className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg ring-1 ring-gray-200/70"
+              className="absolute inset-0 w-full h-full object-cover rounded-2xl"
               priority
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/70 to-transparent" />
           </div>
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section id="benefits" className="py-20 bg-white">
+      <section id="benefits" className="py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 text-center animate-fadeIn">
-            Why Families Love Us
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-100 text-center animate-fadeIn">
+            Why Families Love Family Tree
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-center text-gray-600 animate-fadeIn delay-100">
+          <p className="mt-4 max-w-2xl mx-auto text-center text-slate-300 animate-fadeIn delay-100">
             Everything you need to keep your family history alive and thriving.
           </p>
 
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card 1 */}
-            <div className="group rounded-lg p-8 bg-gray-50 hover:bg-gray-100 transition border border-gray-100 shadow-sm animate-slideUp delay-150">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-rose-100 text-rose-600 mb-6">
-                <TreeDeciduous className="w-6 h-6" />
+            <div className="group rounded-2xl p-8 bg-[#1e293b]/80 hover:bg-[#334155]/80 transition border border-[#334155] shadow-lg animate-fadeIn delay-150">
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500/10 text-green-400 mb-6">
+                <HomeIcon className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2">
-                Visualize Your Family Tree
+              <h3 className="text-xl font-semibold tracking-tight text-slate-100 mb-2">
+                Build Your Family Home
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Map generations with an intuitive drag-and-drop interface and
-                interactive zoom.
+              <p className="text-slate-300 leading-relaxed">
+                Map generations and see your family blossom with an intuitive,
+                interactive tree.
               </p>
             </div>
-            {/* Card 2 */}
-            <div className="group rounded-lg p-8 bg-gray-50 hover:bg-gray-100 transition border border-gray-100 shadow-sm animate-slideUp delay-200">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-rose-100 text-rose-600 mb-6">
-                <Share2 className="w-6 h-6" />
+            <div className="group rounded-2xl p-8 bg-[#1e293b]/80 hover:bg-[#334155]/80 transition border border-[#334155] shadow-lg animate-fadeIn delay-200">
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/10 text-purple-400 mb-6">
+                <Heart className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2">
-                Share with Relatives
+              <h3 className="text-xl font-semibold tracking-tight text-slate-100 mb-2">
+                Share Love &amp; Memories
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Invite family members to view, contribute, and celebrate your
-                collective heritage.
+              <p className="text-slate-300 leading-relaxed">
+                Invite family to add stories, photos, and celebrate milestones
+                together.
               </p>
             </div>
-            {/* Card 3 */}
-            <div className="group rounded-lg p-8 bg-gray-50 hover:bg-gray-100 transition border border-gray-100 shadow-sm animate-slideUp delay-300">
-              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-rose-100 text-rose-600 mb-6">
-                <BookOpen className="w-6 h-6" />
+            <div className="group rounded-2xl p-8 bg-[#1e293b]/80 hover:bg-[#334155]/80 transition border border-[#334155] shadow-lg animate-fadeIn delay-300">
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-400/10 text-yellow-300 mb-6">
+                <Camera className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2">
-                Preserve Family Stories
+              <h3 className="text-xl font-semibold tracking-tight text-slate-100 mb-2">
+                Preserve Family Photos
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Attach photos, documents, and anecdotes so memories never fade
-                away.
+              <p className="text-slate-300 leading-relaxed">
+                Keep precious moments safe for generations—upload, organize, and
+                relive memories.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-rose-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=900&q=60')] opacity-20 mix-blend-overlay"></div>
+      <section className="py-20 bg-gradient-to-r from-green-900/80 via-purple-900/80 to-green-900/80 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=60')] opacity-10 mix-blend-overlay"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-6 md:px-10 animate-fadeIn">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-            Ready to build your legacy?
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Invite Your Loved Ones
           </h2>
           <p className="mt-4 text-lg md:text-xl opacity-90">
-            Join thousands of families who have already started their journey.
+            Family is better together. Start your family story and invite
+            everyone to join.
           </p>
           <SignUpButton>
-            <button className="mt-8 inline-flex items-center bg-white text-rose-600 font-medium rounded-md px-6 py-3 hover:bg-gray-100 transition shadow">
+            <button className="mt-8 inline-flex items-center bg-green-500 text-white font-medium rounded-full px-6 py-3 hover:bg-green-600 transition shadow-lg">
               Sign Up Free
             </button>
           </SignUpButton>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer id="footer" className="bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid md:grid-cols-3 gap-8 text-sm">
-          <div>
-            <a href="#" className="flex items-center space-x-2">
-              <svg
-                className="w-6 h-6 text-rose-600"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 2v20M2 12h20" />
-              </svg>
-              <span className="font-medium">Family&nbsp;Tree</span>
-            </a>
-            <p className="mt-4 text-gray-600">
-              © <span>{year}</span> Family Tree. All rights reserved.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-medium text-gray-900 mb-3">Company</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#benefits" className="hover:underline">
-                  Features
-                </a>
-              </li>
-              <li>
-                <SignUpButton>
-                  <span className="hover:underline cursor-pointer">
-                    Sign Up
-                  </span>
-                </SignUpButton>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-medium text-gray-900 mb-3">Legal</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:underline">
-                  Privacy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Terms
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:support@familytreeapp.com"
-                  className="hover:underline"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+      <section className="py-16 bg-transparent">
+        <div className="max-w-3xl mx-auto px-6 text-center animate-fadeIn">
+          <div className="flex flex-col items-center">
+            <Image
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=60"
+              alt="Family testimonial"
+              width={80}
+              height={80}
+              className="rounded-full mb-4 border-4 border-green-400"
+            />
+            <blockquote className="text-xl text-slate-200 italic mb-2">
+              “Family Tree helped us reconnect with distant relatives and
+              preserve our family’s story for the next generation.”
+            </blockquote>
+            <span className="text-green-300 font-semibold">
+              — The Johnson Family
+            </span>
           </div>
         </div>
-      </footer>
+      </section>
 
-      {/* Animations */}
-      <style jsx global>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease forwards;
-        }
-        .animate-slideUp {
-          animation: slideUp 0.8s ease forwards;
-        }
-      `}</style>
+      <footer className="text-center py-6 text-slate-400 text-sm">
+        <span>
+          Made with <span className="text-red-400">♥</span> for families
+          everywhere. © {year} Family Tree
+        </span>
+      </footer>
     </div>
   );
 }
