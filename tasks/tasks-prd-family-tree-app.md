@@ -14,26 +14,29 @@
 
 ### Notes
 
-- Unit tests should be placed in a __tests__ folder at the root of the project.
+- Unit tests should be placed in a **tests** folder at the root of the project.
 - Use `npx jest [optional/path/to/test/file]` to run tests. Running without a path executes all tests found by the Jest configuration.
 - You may need to create additional directories such as `src/components/`, `src/lib/`, or `src/hooks/` for reusable logic and UI.
 
 ## Tasks
 
 - [x] 1.0 Set up project infrastructure and authentication
+
   - [x] 1.1 Configure Clerk Auth for sign up/sign in (email/password, Google optional)
   - [x] 1.2 Set up Supabase project and connect to Next.js app
   - [x] 1.3 Configure environment variables for Supabase and Clerk
   - [x] 1.4 Set up Tailwind CSS and global styles
   - [x] 1.5 Add middleware for route protection using Clerk
 
-- [ ] 2.0 Implement user profile and family tree data models (Supabase)
+- [x] 2.0 Implement user profile and family tree data models (Supabase)
+
   - [x] 2.1 Define and migrate Prisma schema for User, Family, Person, Relationship
-  - [ ] 2.2 Implement Supabase Row-Level Security (RLS) policies for access control
-  - [ ] 2.3 Set up Supabase Storage for profile images
-  - [ ] 2.4 Seed initial data for development/testing
+  - [x] 2.2 Implement Supabase Row-Level Security (RLS) policies for access control
+  - [x] 2.3 Set up Supabase Storage for profile images
+  - [x] 2.4 Seed initial data for development/testing
 
 - [ ] 3.0 Build family tree CRUD and relationship management features
+
   - [ ] 3.1 Create API routes for family tree CRUD (create, read, update, delete)
   - [ ] 3.2 Create API routes for person CRUD (add, edit, delete people)
   - [ ] 3.3 Implement relationship creation (parent-child, partner/spouse, non-traditional)
@@ -42,6 +45,7 @@
   - [ ] 3.6 Add collaborator invitation and permissions logic
 
 - [ ] 4.0 Develop interactive family tree visualization (D3.js)
+
   - [ ] 4.1 Integrate D3.js for rendering the family tree structure
   - [ ] 4.2 Implement zoom and pan controls
   - [ ] 4.3 Display person details in sidebar/modal on click
@@ -49,6 +53,7 @@
   - [ ] 4.5 Export tree to GEDCOM and PDF formats
 
 - [ ] 5.0 Implement collaboration, export, and access control features
+
   - [ ] 5.1 Enable inviting collaborators to edit/view trees
   - [ ] 5.2 Enforce Supabase RLS for per-user/family access
   - [ ] 5.3 Restrict file storage access to authenticated users
