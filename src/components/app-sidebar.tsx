@@ -1,31 +1,27 @@
 "use client";
 
-import * as React from "react";
 import {
-  Users,
-  TreePine,
-  Camera,
-  Settings,
-  Home,
-  Share2,
-  UserPlus,
-  Archive,
-  Calendar,
-  Heart,
+    Camera,
+    Home,
+    Settings,
+    Share2,
+    TreePine,
+    UserPlus,
+    Users,
 } from "lucide-react";
+import * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
 const data = {

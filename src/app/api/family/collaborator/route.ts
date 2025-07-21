@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 declare global {
-    // eslint-disable-next-line no-var
     var _collaborators: Record<string, { userId: string; email: string; role: 'OWNER' | 'COLLABORATOR' }[]> | undefined;
 }
 

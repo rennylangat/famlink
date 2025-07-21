@@ -1,10 +1,10 @@
 import {
-  Camera,
-  Video,
-  FileText,
   Calendar,
+  Camera,
+  FileText,
   MapPin,
   Upload,
+  Video,
 } from "lucide-react";
 
 export default function MemoriesPage() {
@@ -13,7 +13,7 @@ export default function MemoriesPage() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-foreground">Family Memories</h1>
         <p className="text-muted-foreground">
-          Preserve and share your family's precious moments
+          Preserve and share your family&#39;s precious moments
         </p>
       </div>
 

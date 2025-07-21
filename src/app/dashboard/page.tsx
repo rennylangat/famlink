@@ -45,7 +45,7 @@ export default function DashboardPage() {
                 added new photos to
                 <span className="font-medium text-foreground">
                   {" "}
-                  Grandma Rose's
+                  Grandma Rose&#39;s
                 </span>{" "}
                 profile
               </div>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
                 updated
                 <span className="font-medium text-foreground">
                   {" "}
-                  Uncle Tom's
+                  Uncle Tom&#39;s
                 </span>{" "}
                 birth information
               </div>
