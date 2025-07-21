@@ -1,12 +1,11 @@
 import {
-  Share2,
-  Link,
-  Download,
-  QrCode,
-  Globe,
-  Lock,
-  Users,
-  Mail,
+    Download,
+    Globe,
+    Link,
+    Lock,
+    Mail,
+    QrCode,
+    Users,
 } from "lucide-react";
 
 export default function ShareTreePage() {
