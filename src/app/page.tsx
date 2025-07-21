@@ -1,15 +1,42 @@
 'use client';
 
 import Image from 'next/image';
-import { SignUpButton } from '@clerk/nextjs';
+import { SignUpButton, useUser } from '@clerk/nextjs';
 import { Heart, Home as HomeIcon, Camera } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [year, setYear] = useState('');
+  const { isSignedIn, isLoaded } = useUser();
+  const router = useRouter();
+
   useEffect(() => {
     setYear(new Date().getFullYear().toString());
   }, []);
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      router.push('/dashboard');
+    }
+  }, [isLoaded, isSignedIn, router]);
+
+  // Show loading state while checking authentication
+  if (!isLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]">
+        <div className="text-slate-100 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // If user is signed in, don't render the landing page (redirect will happen)
+  if (isSignedIn) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-slate-100 font-sans">
