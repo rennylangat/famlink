@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { usePathname } from "next/navigation";
-import { AppSidebar } from "@/components/app-sidebar";
+import { usePathname } from 'next/navigation';
+import { AppSidebar } from '@/components/app-sidebar';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,13 +9,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+} from '@/components/ui/breadcrumb';
+import { Separator } from '@/components/ui/separator';
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
 interface BreadcrumbData {
   label: string;
@@ -24,7 +24,7 @@ interface BreadcrumbData {
 }
 
 const getBreadcrumbs = (pathname: string): BreadcrumbData[] => {
-  const segments = pathname.split("/").filter(Boolean);
+  const segments = pathname.split('/').filter(Boolean);
 
   // Remove 'dashboard' from segments as it's always the root
   const pathSegments = segments.slice(1);
@@ -33,15 +33,15 @@ const getBreadcrumbs = (pathname: string): BreadcrumbData[] => {
 
   if (pathSegments.length === 0) {
     // Only show "Dashboard" when we're on the dashboard root
-    breadcrumbs.push({ label: "Dashboard", href: "/dashboard", isLast: true });
+    breadcrumbs.push({ label: 'Home', href: '/home', isLast: true });
     return breadcrumbs;
   }
 
   // Add the root breadcrumb for non-dashboard pages - always use "Home" for consistency
-  breadcrumbs.push({ label: "Home", href: "/dashboard" });
+  breadcrumbs.push({ label: 'Home', href: '/home' });
 
   // Build breadcrumbs based on path
-  let currentPath = "/dashboard";
+  let currentPath = '/home';
 
   pathSegments.forEach((segment, index) => {
     currentPath += `/${segment}`;
@@ -51,32 +51,32 @@ const getBreadcrumbs = (pathname: string): BreadcrumbData[] => {
 
     // Convert segments to readable labels
     switch (segment) {
-      case "family":
-        label = "Family Tree";
+      case 'family':
+        label = 'Family Tree';
         break;
-      case "tree":
-        label = "View Tree";
+      case 'tree':
+        label = 'View Tree';
         break;
-      case "add-member":
-        label = "Add Member";
+      case 'add-member':
+        label = 'Add Member';
         break;
-      case "relationships":
-        label = "Relationships";
+      case 'relationships':
+        label = 'Relationships';
         break;
-      case "members":
-        label = "Members";
+      case 'members':
+        label = 'Members';
         break;
-      case "memories":
-        label = "Memories";
+      case 'memories':
+        label = 'Memories';
         break;
-      case "settings":
-        label = "Settings";
+      case 'settings':
+        label = 'Settings';
         break;
-      case "invite-family":
-        label = "Invite Family";
+      case 'invite-family':
+        label = 'Invite Family';
         break;
-      case "share-tree":
-        label = "Share Tree";
+      case 'share-tree':
+        label = 'Share Tree';
         break;
       default:
         label = segment.charAt(0).toUpperCase() + segment.slice(1);
@@ -116,7 +116,7 @@ export default function DashboardLayout({
                 {breadcrumbs.map((breadcrumb, index) => (
                   <div
                     key={`${breadcrumb.href}-${index}`}
-                    className="flex items-center"
+                    className="flex items-center gap-2.5"
                   >
                     {index > 0 && (
                       <BreadcrumbSeparator className="hidden md:block" />

@@ -1,141 +1,141 @@
-"use client";
+'use client';
 
 import {
-    Camera,
-    Home,
-    Settings,
-    Share2,
-    TreePine,
-    UserPlus,
-    Users,
-} from "lucide-react";
-import * as React from "react";
+  Users,
+  TreePine,
+  Camera,
+  Settings,
+  Home,
+  Share2,
+  UserPlus,
+} from 'lucide-react';
+import * as React from 'react';
 
-import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
-import { NavUser } from "@/components/nav-user";
+import { NavMain } from '@/components/nav-main';
+import { NavSecondary } from '@/components/nav-secondary';
+import { NavUser } from '@/components/nav-user';
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-} from "@/components/ui/sidebar";
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from '@/components/ui/sidebar';
 
 const data = {
   user: {
-    name: "Bryce Cee",
-    email: "bryce@familytree.com",
+    name: 'Bryce Cee',
+    email: 'bryce@familytree.com',
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=60",
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=60',
   },
   navMain: [
     {
-      title: "Dashboard",
-      url: "/dashboard",
+      title: 'Home',
+      url: '/home',
       icon: Home,
       isActive: true,
     },
     {
-      title: "Family Tree",
-      url: "/dashboard/family",
+      title: 'Family Tree',
+      url: '/home/family',
       icon: TreePine,
       items: [
         {
-          title: "View Tree",
-          url: "/dashboard/family/tree",
+          title: 'View Tree',
+          url: '/home/family/tree',
         },
         {
-          title: "Add Member",
-          url: "/dashboard/family/add-member",
+          title: 'Add Member',
+          url: '/home/family/add-member',
         },
         {
-          title: "Relationships",
-          url: "/dashboard/family/relationships",
+          title: 'Relationships',
+          url: '/home/family/relationships',
         },
       ],
     },
     {
-      title: "Members",
-      url: "/dashboard/members",
+      title: 'Members',
+      url: '/home/members',
       icon: Users,
       items: [
         {
-          title: "All Members",
-          url: "/dashboard/members",
+          title: 'All Members',
+          url: '/home/members',
         },
         {
-          title: "Living",
-          url: "/dashboard/members/living",
+          title: 'Living',
+          url: '/home/members/living',
         },
         {
-          title: "Deceased",
-          url: "/dashboard/members/deceased",
+          title: 'Deceased',
+          url: '/home/members/deceased',
         },
         {
-          title: "Search",
-          url: "/dashboard/members/search",
+          title: 'Search',
+          url: '/home/members/search',
         },
       ],
     },
     {
-      title: "Memories",
-      url: "/dashboard/memories",
+      title: 'Memories',
+      url: '/home/memories',
       icon: Camera,
       items: [
         {
-          title: "Photos",
-          url: "/dashboard/memories/photos",
+          title: 'Photos',
+          url: '/home/memories/photos',
         },
         {
-          title: "Documents",
-          url: "/dashboard/memories/documents",
+          title: 'Documents',
+          url: '/home/memories/documents',
         },
         {
-          title: "Stories",
-          url: "/dashboard/memories/stories",
+          title: 'Stories',
+          url: '/home/memories/stories',
         },
         {
-          title: "Timeline",
-          url: "/dashboard/memories/timeline",
+          title: 'Timeline',
+          url: '/home/memories/timeline',
         },
       ],
     },
     {
-      title: "Settings",
-      url: "/dashboard/settings",
+      title: 'Settings',
+      url: '/home/settings',
       icon: Settings,
       items: [
         {
-          title: "Profile",
-          url: "/dashboard/settings/profile",
+          title: 'Profile',
+          url: '/home/settings/profile',
         },
         {
-          title: "Privacy",
-          url: "/dashboard/settings/privacy",
+          title: 'Privacy',
+          url: '/home/settings/privacy',
         },
         {
-          title: "Notifications",
-          url: "/dashboard/settings/notifications",
+          title: 'Notifications',
+          url: '/home/settings/notifications',
         },
         {
-          title: "Family Settings",
-          url: "/dashboard/settings/family",
+          title: 'Family Settings',
+          url: '/home/settings/family',
         },
       ],
     },
   ],
   navSecondary: [
     {
-      title: "Invite Family",
-      url: "/dashboard/invite-family",
+      title: 'Invite Family',
+      url: '/home/invite-family',
       icon: UserPlus,
     },
     {
-      title: "Share Tree",
-      url: "/dashboard/share-tree",
+      title: 'Share Tree',
+      url: '/home/share-tree',
       icon: Share2,
     },
   ],
@@ -148,7 +148,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="/dashboard">
+              <a href="/home">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                   <TreePine className="size-4" />
                 </div>
